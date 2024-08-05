@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite x</title>
+
+
+    <style>
+
+        body {
+            background-color: black;
+            color: whitesmoke;
+            text-align: center;
+        }
+
+        .dad {
+            margin-top: 8rem;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .son {
+            display: flex;
+            padding: 2rem;
+            flex-shrink: 0;
+            gap: 3rem;
+            animation: scrolling-x 6s linear infinite;
+            background-color: whitesmoke;
+        }
+
+        .son img {
+            width: 10rem;
+            height: 10rem;
+            margin-right: 5rem;
+            border-radius: 2rem;
+            filter: grayscale();
+            transition: 0.5s;
+            transform: scale(0.5);
+        }
+
+        .son img:hover{
+            filter: grayscale(0);
+            transform: scale(1);
+        }
+
+        @keyframes scrolling-x {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @media (min-width: 600px) {
+            .son img {
+                margin-right: 10rem;
+            }
+        }
+        
+    </style>
+    
+</head>
+<body>
+    
+    <h1>Our client</h1>
+    
+    <div class="dad">
+        <div class="son">
+            <img src="img/1.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+            <img src="img/5.jpg" alt="">
+            <img src="img/6.jpg" alt="">
+        </div>
+    </div>
+    
+<script>
+    const son = document.querySelector('.son').cloneNode(true)
+    document.querySelector('.dad').appendChild(son)
+</script>
+</body>
+</html>
